@@ -46,6 +46,12 @@ public class StudentManagement {
         public boolean checkStudentList(){
             return students.isEmpty();
              }
+        public void alert(){
+            if (this.checkStudentList())
+                System.out.println("co");
+            else
+            System.out.println("ko co");
+        }
 //4 Lay ra so luong sinh vien trong danh sach
         public int checkQuantity(){
              return students.size();
