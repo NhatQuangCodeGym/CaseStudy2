@@ -23,7 +23,7 @@ public class Instructor extends Person {
         SalaryIndex = salaryIndex;
         TeachingHours = teachingHours;
     }
-
+    @Override
     public String getClassRoom() {
         return Class;
     }
@@ -31,7 +31,7 @@ public class Instructor extends Person {
     public void setClassRoom(String Lop_hoc) {
         this.Class = Lop_hoc;
     }
-
+    @Override
     public double getSalaryIndex() {
         return SalaryIndex;
     }
@@ -39,7 +39,7 @@ public class Instructor extends Person {
     public void setSalaryIndex(double Salary) {
         this.SalaryIndex = Salary;
     }
-
+    @Override
     public double getTeachingHours() {
         return TeachingHours;
     }

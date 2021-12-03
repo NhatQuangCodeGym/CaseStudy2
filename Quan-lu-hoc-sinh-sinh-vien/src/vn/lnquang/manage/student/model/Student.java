@@ -18,14 +18,13 @@ public class Student extends Person {
     }
 
     public Student(String Name, String Gender, String Birthday, String Address, double averageScore, String email) {
-
         super(Name, Gender, Birthday, Address);
         count++;
         this.id = count;
         AverageScore = averageScore;
         Email = email;
     }
-
+    @Override
     public int getId() {
         return id;
     }
@@ -33,11 +32,15 @@ public class Student extends Person {
     public void setId(int Ma_sv) {
         this.id = Ma_sv;
     }
-
+    @Override
     public double getAverageScore() {
         return AverageScore;
     }
-
+    public static Person createPerson (String Name, String Gender, String Birthday,
+                          String Address, double averageScore, String email){
+        Person result = new Student(Name,Gender,Birthday,Address,averageScore,email);
+        return result;
+    }
     public void setAverageScore(double Diem_tb) {
         this.AverageScore = Diem_tb;
     }

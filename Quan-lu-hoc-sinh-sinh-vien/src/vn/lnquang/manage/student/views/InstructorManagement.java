@@ -1,6 +1,7 @@
 package vn.lnquang.manage.student.views;
 
 import vn.lnquang.manage.student.model.Instructor;
+import vn.lnquang.manage.student.model.Person;
 import vn.lnquang.manage.student.model.Student;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.Scanner;
 
 public class InstructorManagement {
     final Scanner scanner = new Scanner(System.in);
-    List<Instructor> instructors = new ArrayList<>();
+    List<Person> instructors = new ArrayList<>();
 //    1. Them giang vien vao danh sach
     public void add(){
 //        System.out.println("Nhap ten giang vien: ");
@@ -32,19 +33,19 @@ public class InstructorManagement {
         instructors.add(new Instructor("B","Nu","456456","dfgdfg","10A5",50000.00,45.5));
         instructors.add(new Instructor("C","Nu","456456","dfgdfg","10A5",40000.00,45.5));
     }
-    //    2. Hien thi danh sach sinh vien
-    public List<Instructor> getStudents() {
+    //    2. Hien thi danh sach giang vien
+    public List<Person> getInstructors() {
         return instructors;
     }
     public void showInstructorList() {
-        for (Instructor giangvien : instructors) {
+        for (Person giangvien : instructors) {
             System.out.println(giangvien);
         }
     }
 //    3.Tinh luong cua giang vien
 public double tinh_luong(String name) {
     double basicSalary = 2000000;
-    for (Instructor instructor: instructors) {
+    for (Person instructor: instructors) {
         if (instructor.getName().equals(name)) {
             if (instructor.getClassRoom().contains("A")) {
                 double totalSalary = instructor.getSalaryIndex() * instructor.getTeachingHours() + basicSalary;

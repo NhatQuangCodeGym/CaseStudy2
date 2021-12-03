@@ -1,6 +1,7 @@
 package vn.lnquang.manage.student.views;
 
 import vn.lnquang.manage.student.model.Instructor;
+import vn.lnquang.manage.student.model.Person;
 import vn.lnquang.manage.student.model.Student;
 
 import java.io.*;
@@ -8,7 +9,7 @@ import java.util.*;
 
 public class StudentManagement {
     final Scanner scanner= new Scanner(System.in);
-    List<Student> students= new ArrayList<>();
+    List<Person> students= new ArrayList<>();
 //    1. Them sinh vien vao danh sach
 
     public void addStudent(){
@@ -25,17 +26,19 @@ public class StudentManagement {
 //        scanner.nextLine();
 //        System.out.println(" Nhap dia chi email: ");
 //        String Email= scanner.nextLine();
+//        students.add(new Student(name,gender,birthDay,address,averageScore,Email));
+
         students.add(new Student("A","nu","4565","dfgdfg",7.5,"fdghfgh"));
         students.add(new Student("B","nu","4565","dfgdfg",6.3,"fdghfgh"));
         students.add(new Student("C","nu","4565","dfgdfg",8.2,"fdghfgh"));
 //        students.add(new Student(name,gender,birthDay,address,averageScore,Email));
     }
 //    2. Hien thi danh sach sinh vien
-         public List<Student> getStudents() {
+         public List<Person> getStudents() {
           return students;
 }
          public void showStudentList() {
-             for (Student sinhVien : students) {
+             for (Person sinhVien : students) {
                  System.out.println(sinhVien);
              }
          }
@@ -52,8 +55,8 @@ public class StudentManagement {
              students.removeAll(students);
              }
 //6.Kiem tra ton tai Sinh Vien
-             public Student checkAvailable(int id){
-                 for (Student student: students){
+             public Person checkAvailable(int id){
+                 for (Person student: students){
                      if(student.getId()==id){
                          return student;
                      }
@@ -62,8 +65,8 @@ public class StudentManagement {
     }
 // 7. Xoa mot ban  sinh vien ra khoi danh sach danh sinh vien
              public boolean removeStudent(int id){
-                ArrayList<Student> listremove = new ArrayList<>();
-                 for (Student student: students) {
+                ArrayList<Person> listremove = new ArrayList<>();
+                 for (Person student: students) {
                      if(student.getId()== id)
                          listremove.add(student);
                  }
@@ -72,8 +75,7 @@ public class StudentManagement {
              }
              // 8. Tim sinh vien
              public void findStudent(String ten) {
-                 for (Student sinhVien : students
-                 ) {
+                 for (Person sinhVien : students) {
                      if (sinhVien.getName().equals(ten)) {
                          System.out.println(sinhVien.toString());
                      }
@@ -81,9 +83,9 @@ public class StudentManagement {
              }
 //9. Xuat ra sinh vien tu thap den cao
              public void sortStudentByScore(){
-                 Collections.sort(students, new Comparator<Student>() {
+                 Collections.sort(students, new Comparator<Person>() {
                      @Override
-                     public int compare(Student sv1, Student sv2) {
+                     public int compare(Person sv1, Person sv2) {
                          if(sv1.getAverageScore()<sv2.getAverageScore())
                              return -1;
                          else if(sv1.getAverageScore()>sv2.getAverageScore()){
@@ -99,7 +101,7 @@ public class StudentManagement {
                      OutputStream os = new FileOutputStream(file);
                      ObjectOutputStream oos = new ObjectOutputStream(os);
 
-                     for(Student student : students){
+                     for(Person student : students){
                          oos.writeObject(student);
                      }
                      oos.flush();
@@ -122,16 +124,5 @@ public class StudentManagement {
                  }
                  return students;
              }
-//    List<Instructor> instructors = new ArrayList<>();
-//    public void addInstructor(){
-//        String Name = scanner.nextLine();
-//        String Gender = scanner.nextLine();
-//        String Birthday = scanner.nextLine();
-//        String Address = scanner .nextLine();
-//        String aClass = scanner.nextLine();
-//        float salary = scanner.nextFloat();
-//        scanner.nextLine();
-//        float teachingHours =scanner.nextFloat();
-//        scanner.nextLine();
-//    }
+
 }
