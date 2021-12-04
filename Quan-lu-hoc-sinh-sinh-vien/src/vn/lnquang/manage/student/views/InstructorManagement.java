@@ -57,4 +57,5 @@ public double tinh_luong(String name) {
         }
     }return -1;
 }
+//4. Xoa giang vien ra khoi danh sach
 }

@@ -48,22 +48,27 @@ public class StudentManagement {
              }
         public void alert(){
             if (this.checkStudentList())
-                System.out.println("co");
+                System.out.println("Không sinh viên trong danh sách");
             else
-            System.out.println("ko co");
+            System.out.println("Có sinh viên nào trong danh sách");
         }
 //4 Lay ra so luong sinh vien trong danh sach
         public int checkQuantity(){
-             return students.size();
-}
+//            System.out.println(" Số lượng sinh viên trong danh sách là: ");
+             return this.students.size();
+}       public void printQuantity(){
+        System.out.println("Số lượng sinh viên trong danh sách là: " + checkQuantity() );
+    }
 //5. Lam rong danh sach sinh vien
              public void emptyStudentList(){
-             students.removeAll(students);
+            students.removeAll(students);
+                 System.out.println("Danh sách đã được làm mới.");
              }
 //6.Kiem tra ton tai Sinh Vien
              public Person checkAvailable(int id){
                  for (Person student: students){
                      if(student.getId()==id){
+                         System.out.println("Có sinh viên trong danh sách");
                          return student;
                      }
                  }
@@ -79,6 +84,15 @@ public class StudentManagement {
                  boolean check = students.removeAll(listremove);
                  return check;
              }
+             public void checkRemove(){
+                 System.out.println(" Nhập vào id sinh viên bạn muốn xoá khỏi danh sách: ");
+                 int id = scanner.nextInt();
+                 removeStudent(id);
+                 if(removeStudent(id))
+                 System.out.println("Sinh viên có MSV" + id +" đã bị xoá khỏi danh sách");
+                 else
+                     System.out.println(" Không tìm ra sinh viên trong danh sách");
+             }
              // 8. Tim sinh vien
              public void findStudent(String ten) {
                  for (Person sinhVien : students) {
@@ -87,6 +101,12 @@ public class StudentManagement {
                      }
                  }
              }
+             public void checkStudent(){
+                 System.out.println(" Nhập vào tên sinh viên bạn muốn tìm:");
+                 String name = scanner.nextLine();
+                 findStudent(name);
+             }
+
 //9. Xuat ra sinh vien tu thap den cao
              public void sortStudentByScore(){
                  Collections.sort(students, new Comparator<Person>() {

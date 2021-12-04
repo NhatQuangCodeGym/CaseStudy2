@@ -87,14 +87,19 @@ public class Menu {
                             student.alert();
                             break;
                         case 4:
+                            student.printQuantity();
                             break;
                         case 5:
+                            student.emptyStudentList();
                             break;
                         case 6:
+
                             break;
                         case 7:
+                            student.checkRemove();
                             break;
                         case 8:
+                            student.checkStudent();
                             break;
                         case 9:
                             break;
