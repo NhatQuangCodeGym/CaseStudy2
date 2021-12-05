@@ -133,11 +133,12 @@ public class Menu {
             System.out.println("4. Đếm số lượng giảng viên trong danh sách");
             System.out.println("5. Reset danh sách giảng viên");
             System.out.println("6. Tìm giảng viên theo tên.");
+            System.out.println("7. Tính lương của giảng viên theo tên");
             System.out.println("0. Ket thuc chuong trinh.");
             System.out.println("Nhap so: ");
             try {
                 int choice = Integer.parseInt(scanner.next());
-                if (choice > 0 && choice < 7) {
+                if (choice > 0 && choice < 8) {
                     switch (choice) {
                         case 1:
                             teacher.add();
@@ -146,15 +147,19 @@ public class Menu {
                             teacher.showInstructorList();
                             break;
                         case 3:
-
+                            teacher.alert();
                             break;
                         case 4:
-
+                            teacher.printQuantity();
                             break;
                         case 5:
-
+                            teacher.emptyInstructorList();
                             break;
-
+                        case 6:
+                            teacher.checkInstructor();
+                            break;
+                        case 7:
+                            teacher.getSalary();
                     }
                 } else if (choice == 0) {
                     System.out.println("tam biet");

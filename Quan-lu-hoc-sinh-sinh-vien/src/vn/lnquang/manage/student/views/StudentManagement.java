@@ -98,7 +98,8 @@ public class StudentManagement {
                  for (Person sinhVien : students) {
                      if (sinhVien.getName().equals(ten)) {
                          System.out.println(sinhVien.toString());
-                     }
+                     }else
+                         System.out.println(" Không có sinh viên trong danh sách");
                  }
              }
              public void checkStudent(){
