@@ -48,9 +48,9 @@ public class StudentManagement {
              }
         public void alert(){
             if (this.checkStudentList())
-                System.out.println("Không sinh viên trong danh sách");
+                System.out.println("Không có sinh viên nào trong danh sách");
             else
-            System.out.println("Có sinh viên nào trong danh sách");
+            System.out.println("Có tồn tại sinh viên trong danh sách");
         }
 //4 Lay ra so luong sinh vien trong danh sach
         public int checkQuantity(){

@@ -33,7 +33,7 @@ public class Menu {
                         studentManager();
                             break;
                         case 2:
-//                        instructorManager();
+                        instructorManager();
                             break;
                         case 3:
 //                        classroomManager();
@@ -107,6 +107,54 @@ public class Menu {
                             break;
                         case 11:
                             break;
+                    }
+                } else if (choice == 0) {
+                    System.out.println("tam biet");
+                    break;
+                } else
+                    System.out.println("nhap tu 0-3");
+
+            } catch (Exception e) {
+                System.err.println("yeu cau nhap so");
+            }
+        }
+        while (true);
+    }
+    public static void instructorManager(){
+        Scanner scanner = new Scanner(System.in);
+        InstructorManagement teacher = new InstructorManagement();
+        do {
+
+            System.out.println("Menu--------");
+            System.out.println("Vui long chon chuc nang");
+            System.out.println("1. Thêm giảng viên vào danh sách");
+            System.out.println("2. Hiển thị danh sách giảng viên hiện có.");
+            System.out.println("3. Kiểm tra danh sách giảng viên có rỗng không.");
+            System.out.println("4. Đếm số lượng giảng viên trong danh sách");
+            System.out.println("5. Reset danh sách giảng viên");
+            System.out.println("6. Tìm giảng viên theo tên.");
+            System.out.println("0. Ket thuc chuong trinh.");
+            System.out.println("Nhap so: ");
+            try {
+                int choice = Integer.parseInt(scanner.next());
+                if (choice > 0 && choice < 7) {
+                    switch (choice) {
+                        case 1:
+                            teacher.add();
+                            break;
+                        case 2:
+                            teacher.showInstructorList();
+                            break;
+                        case 3:
+
+                            break;
+                        case 4:
+
+                            break;
+                        case 5:
+
+                            break;
+
                     }
                 } else if (choice == 0) {
                     System.out.println("tam biet");
