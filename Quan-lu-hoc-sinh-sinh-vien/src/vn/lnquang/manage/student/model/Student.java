@@ -4,15 +4,11 @@ import java.util.Scanner;
 
 public class Student extends Person {
 
-    int id;
-    double AverageScore;
-    String Email;
-    static int count=0;
+    private int id;
+    private double AverageScore;
+    private String Email;
+    static int count = 0;
 
-    @Override
-    public void showInfo() {
-        System.out.println(this);
-    }
 
     public Student() {
     }
@@ -24,6 +20,7 @@ public class Student extends Person {
         AverageScore = averageScore;
         Email = email;
     }
+
     @Override
     public int getId() {
         return id;
@@ -32,15 +29,13 @@ public class Student extends Person {
     public void setId(int Ma_sv) {
         this.id = Ma_sv;
     }
-    @Override
-    public double getAverageScore() {
-        return AverageScore;
-    }
-    public static Person createPerson (String Name, String Gender, String Birthday,
-                          String Address, double averageScore, String email){
-        Person result = new Student(Name,Gender,Birthday,Address,averageScore,email);
+
+    public static Person createPerson(String Name, String Gender, String Birthday,
+                                      String Address, double averageScore, String email) {
+        Person result = new Student(Name, Gender, Birthday, Address, averageScore, email);
         return result;
     }
+
     public void setAverageScore(double Diem_tb) {
         this.AverageScore = Diem_tb;
     }
@@ -57,29 +52,6 @@ public class Student extends Person {
         this.id = Ma_sv;
         this.AverageScore = Diem_tb;
         this.Email = Email;
-    }
-
-    @Override
-    public void inputInfo() {
-//        Scanner sc = new Scanner(System.in);
-//        super.inputInfo();
-//        System.out.println("Nhap ma sinh vien");
-//        id = sc.nextLine();
-//        if (id.length() > 8) {
-//            System.out.println("Nhap lai ma sinh vien:");
-//            id = sc.nextLine();
-//        }
-//        System.out.println("Nhap Diem trung binh");
-//        AverageScore = Float.parseFloat(sc.nextLine());
-//        if (AverageScore < 0.0 || AverageScore > 10.0) {
-//            System.out.println("Nhap Diem trung binh:");
-//            AverageScore = Float.parseFloat(sc.nextLine());
-//        }
-//        System.out.println("Nhap Email");
-//        Email = sc.nextLine();
-//        if (Email.contains("@")) {
-//            System.out.println("Nhap lai Email:");
-//            Email = sc.nextLine();
     }
 
     @Override

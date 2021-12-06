@@ -1,17 +1,21 @@
 package vn.lnquang.manage.student.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ClassRoom {
     private String ClassId;
     private Person headTeacher;
-    private Person subjectTeacherList;
-    private List studentList;
+    private List<Instructor> subjectTeacherList;
+    private List<Student> studentList;
 
-    public ClassRoom(String classId, Person headTeacher, Person subjectTeacher, List studentList) {
+    public ClassRoom() {
+    }
+
+    public ClassRoom(String classId, Person headTeacher, List<Instructor> subjectTeacherList, List<Student> studentList) {
         ClassId = classId;
         this.headTeacher = headTeacher;
-        this.subjectTeacherList = subjectTeacher;
+        this.subjectTeacherList = subjectTeacherList;
         this.studentList = studentList;
     }
 
@@ -31,20 +35,29 @@ public class ClassRoom {
         this.headTeacher = headTeacher;
     }
 
-    public Person getSubjectTeacher() {
+    public List<Instructor> getSubjectTeacherList() {
         return subjectTeacherList;
     }
 
-    public void setSubjectTeacher(Person subjectTeacher) {
-        this.subjectTeacherList = subjectTeacher;
+    public void setSubjectTeacherList(List<Instructor> subjectTeacherList) {
+        this.subjectTeacherList = subjectTeacherList;
     }
 
-    public List getStudentList() {
+    public List<Student> getStudentList() {
         return studentList;
     }
 
-    public void setStudentList(List studentList) {
+    public void setStudentList(List<Student> studentList) {
         this.studentList = studentList;
     }
 
+    @Override
+    public String toString() {
+        return "ClassRoom{" +
+                "ClassId='" + ClassId + '\'' +
+                ", headTeacher=" + headTeacher +
+                ", subjectTeacherList=" + subjectTeacherList +
+                ", studentList=" + studentList +
+                '}';
+    }
 }

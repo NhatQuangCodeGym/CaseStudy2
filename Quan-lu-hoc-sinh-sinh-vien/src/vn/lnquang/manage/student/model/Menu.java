@@ -1,9 +1,8 @@
 package vn.lnquang.manage.student.model;
 
 //import vn.lnquang.manage.student.views.InstructorManagement;
-import vn.lnquang.manage.student.views.ClassRoomManagement;
-import vn.lnquang.manage.student.views.InstructorManagement;
-import vn.lnquang.manage.student.views.StudentManagement;
+import vn.lnquang.manage.student.service.InstructorService;
+import vn.lnquang.manage.student.service.StudentService;
 
 import java.util.Scanner;
 
@@ -55,7 +54,7 @@ public class Menu {
 
     public static void studentManager(){
         Scanner scanner = new Scanner(System.in);
-        StudentManagement student = new StudentManagement();
+        StudentService student = new StudentService();
 
         do {
 
@@ -78,7 +77,7 @@ public class Menu {
                     switch (choice) {
                         case 1:
                         student.addStudent();
-//                        student.showStudentList();
+
                             break;
                         case 2:
                         student.showStudentList();
@@ -122,7 +121,7 @@ public class Menu {
     }
     public static void instructorManager(){
         Scanner scanner = new Scanner(System.in);
-        InstructorManagement teacher = new InstructorManagement();
+        InstructorService teacher = new InstructorService();
         do {
 
             System.out.println("Menu--------");
@@ -172,6 +171,10 @@ public class Menu {
             }
         }
         while (true);
+    }
+
+    public static void classRoomManager(){
+
     }
     }
 

@@ -1,15 +1,14 @@
-package vn.lnquang.manage.student.views;
+package vn.lnquang.manage.student.service;
 
-import vn.lnquang.manage.student.model.Instructor;
 import vn.lnquang.manage.student.model.Person;
 import vn.lnquang.manage.student.model.Student;
 
 import java.io.*;
 import java.util.*;
 
-public class StudentManagement {
+public class StudentService {
     final Scanner scanner= new Scanner(System.in);
-    List<Person> students= new ArrayList<>();
+    List<Student> students= new ArrayList<>();
 //    1. Them sinh vien vao danh sach
 
     public void addStudent(){
@@ -34,7 +33,7 @@ public class StudentManagement {
 //        students.add(new Student(name,gender,birthDay,address,averageScore,Email));
     }
 //    2. Hien thi danh sach sinh vien
-         public List<Person> getStudents() {
+         public List<Student> getStudents() {
           return students;
 }
          public void showStudentList() {
