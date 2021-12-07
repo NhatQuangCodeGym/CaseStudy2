@@ -16,21 +16,6 @@ public class Person {
         this.Address = Address;
     }
 
-    public double getAverageScore() {
-        return -1;
-    }
-
-    public String getClassRoom() {
-        return null;
-    }
-
-    public double getSalaryIndex() {
-        return -1;
-    }
-
-    public double getTeachingHours() {
-        return -1;
-    }
 
     public int getId() {
         return -1;

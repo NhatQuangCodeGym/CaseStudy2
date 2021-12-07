@@ -36,6 +36,10 @@ public class Student extends Person {
         return result;
     }
 
+    public double getAverageScore() {
+        return AverageScore;
+    }
+
     public void setAverageScore(double Diem_tb) {
         this.AverageScore = Diem_tb;
     }
@@ -58,13 +62,4 @@ public class Student extends Person {
     public String toString() {
         return super.toString() + ", Ma_sv=" + id + ", Diem_tb=" + AverageScore + ", Email=" + Email;
     }
-
-    public boolean kiem_tra_hb() {
-        if (AverageScore >= 8.0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
 }

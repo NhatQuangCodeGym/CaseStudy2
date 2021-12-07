@@ -1,52 +1,35 @@
 package vn.lnquang.manage.student.model;
 
-import java.util.Scanner;
-
 public class Instructor extends Person {
-    private int id;
-    private double SalaryIndex;
-    private double TeachingHours;
-
+    private double salaryIndex;
+    private double teachingHours;
     public Instructor() {
     }
 
-    public Instructor(int id, double salaryIndex, double teachingHours) {
-        this.id = id;
-        SalaryIndex = salaryIndex;
-        TeachingHours = teachingHours;
+    public Instructor(double salaryIndex, double teachingHours) {
+        this.salaryIndex = salaryIndex;
+        this.teachingHours = teachingHours;
     }
 
-    public Instructor(String Name, String Gender, String Birthday, String Address, int id, double salaryIndex, double teachingHours) {
+    public Instructor(String Name, String Gender, String Birthday, String Address, double salaryIndex, double teachingHours) {
         super(Name, Gender, Birthday, Address);
-        this.id = id;
-        SalaryIndex = salaryIndex;
-        TeachingHours = teachingHours;
-    }
-
-    @Override
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    @Override
-    public double getSalaryIndex() {
-        return SalaryIndex;
+        this.salaryIndex = salaryIndex;
+        this.teachingHours = teachingHours;
     }
 
     public void setSalaryIndex(double salaryIndex) {
-        SalaryIndex = salaryIndex;
+        this.salaryIndex = salaryIndex;
     }
 
-    @Override
     public double getTeachingHours() {
-        return TeachingHours;
+        return teachingHours;
     }
 
     public void setTeachingHours(double teachingHours) {
-        TeachingHours = teachingHours;
+        this.teachingHours = teachingHours;
+    }
+
+    public double getSalaryIndex() {
+        return salaryIndex;
     }
 }

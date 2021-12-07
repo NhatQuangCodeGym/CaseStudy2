@@ -33,7 +33,7 @@ public class StudentService {
              }
 
 ////4 Lay ra so luong sinh vien trong danh sach
-        public int checkQuantity(){
+        public int checkStudentQuantity(){
 //            System.out.println(" Số lượng sinh viên trong danh sách là: ");
              return students.size();
 }
@@ -42,7 +42,14 @@ public class StudentService {
              public void remove(){
             students.removeAll(students);
              }
-
+//6. Tra ve hoc sinh theo ID
+            public Student findStudentByID(int id){
+                for ( Student student : students){
+                    if(student.getId()==id){
+                        return student;
+                    }
+                }return null;
+            }
 ////6.Kiem tra ton tai Sinh Vien
              public boolean checkAvailable(int id){
                  for (Student student: students){
@@ -54,8 +61,8 @@ public class StudentService {
     }
 //// 7. Xoa mot ban  sinh vien ra khoi danh sach danh sinh vien
              public boolean removeStudent(int id){
-                ArrayList<Person> listremove = new ArrayList<>();
-                 for (Person student: students) {
+                ArrayList<Student> listremove = new ArrayList<>();
+                 for (Student student: students) {
                      if(student.getId()== id)
                          listremove.add(student);
                  }
@@ -63,34 +70,33 @@ public class StudentService {
                  return check;
              }
 //             // 8. Tim sinh vien
-//             public boolean findStudent(String ten) {
-//                 for (Person sinhVien : students) {
-//                     if (sinhVien.getName().equals(ten)) {
-//                         System.out.println(sinhVien.toString());
-//                     }else
-//                         System.out.println(" Không có sinh viên trong danh sách");
-//                 }
-//             }
-//             public void checkStudent(){
-//                 System.out.println(" Nhập vào tên sinh viên bạn muốn tìm:");
-//                 String name = scanner.nextLine();
-//                 findStudent(name);
-//             }
+             public Student findStudent(String ten) {
+                 for (Student sinhVien : students) {
+                     if (sinhVien.getName().equals(ten)) {
+                         return sinhVien;
+                     }
+                 }return null;
+             }
 //
 ////9. Xuat ra sinh vien tu thap den cao
-//             public void sortStudentByScore(){
-//                 Collections.sort(students, new Comparator<Person>() {
-//                     @Override
-//                     public int compare(Person sv1, Person sv2) {
-//                         if(sv1.getAverageScore()<sv2.getAverageScore())
-//                             return -1;
-//                         else if(sv1.getAverageScore()>sv2.getAverageScore()){
-//                             return 1;
-//                         }else
-//                             return 0;
-//                     }
-//                 });
-//             }
+             public List<Student> sortStudentByScore(){
+                List<Student> list = new ArrayList<>();
+                 for (Student student: students) {
+                         list.add(student);
+                 }
+                 Collections.sort(list, new Comparator<Student>() {
+                     @Override
+                     public int compare(Student sv1, Student sv2) {
+                         if(sv1.getAverageScore()<sv2.getAverageScore())
+                             return -1;
+                         else if(sv1.getAverageScore()>sv2.getAverageScore()){
+                             return 1;
+                         }else
+                             return 0;
+                     }
+                 });
+                 return list;
+             }
 ////10. Ghi xuong file
 //             public void ghiDuLieuXuongFile(File file){
 //                 try {

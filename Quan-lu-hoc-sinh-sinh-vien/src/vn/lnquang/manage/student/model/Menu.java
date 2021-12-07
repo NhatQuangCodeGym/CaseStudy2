@@ -2,7 +2,6 @@ package vn.lnquang.manage.student.model;
 
 //import vn.lnquang.manage.student.views.InstructorManagement;
 import vn.lnquang.manage.student.service.InstructorService;
-import vn.lnquang.manage.student.service.StudentService;
 import vn.lnquang.manage.student.views.View;
 
 import java.util.Scanner;
@@ -77,7 +76,7 @@ public class Menu {
                         view.showStudentList();
                             break;
                         case 3:
-                            view.checkList();
+                            view.checkStudentList();
                             break;
                         case 4:
                             view.printQuantity();
@@ -86,14 +85,14 @@ public class Menu {
                             view.resetStudentList();
                             break;
                         case 6:
-
+                            view.checkStudentInList();
                             break;
-//                        case 7:
-//                            student.checkRemove();
-//                            break;
-//                        case 8:
-//                            student.checkStudent();
-//                            break;
+                        case 7:
+                            view.checkRemove();
+                            break;
+                        case 8:
+                            view.checkStudent();
+                            break;
 //                        case 9:
 //                            break;
 //                        case 10:
@@ -115,7 +114,7 @@ public class Menu {
     }
     public static void instructorManager(){
         Scanner scanner = new Scanner(System.in);
-        InstructorService teacher = new InstructorService();
+        View view = new View();
         do {
 
             System.out.println("Menu--------");
@@ -134,25 +133,25 @@ public class Menu {
                 if (choice > 0 && choice < 8) {
                     switch (choice) {
                         case 1:
-                            teacher.add();
+                            view.addInstructorIntoList();
                             break;
                         case 2:
-                            teacher.showInstructorList();
+                            view.showInstructorList();
                             break;
                         case 3:
-                            teacher.alert();
+                            view.checkInstructorList();
                             break;
                         case 4:
-                            teacher.printQuantity();
+                            view.printInstructorQuantity();
                             break;
                         case 5:
-                            teacher.emptyInstructorList();
+                            view.resetInstructorList();
                             break;
                         case 6:
-                            teacher.checkInstructor();
+                            view.checkInstructor();
                             break;
                         case 7:
-                            teacher.getSalary();
+                            view.getSalary();
                     }
                 } else if (choice == 0) {
                     System.out.println("tam biet");
