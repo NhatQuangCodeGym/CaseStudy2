@@ -93,8 +93,9 @@ public class Menu {
                         case 8:
                             view.checkStudent();
                             break;
-//                        case 9:
-//                            break;
+                        case 9:
+                            view.sortStudentList();
+                            break;
 //                        case 10:
 //                            break;
 //                        case 11:
