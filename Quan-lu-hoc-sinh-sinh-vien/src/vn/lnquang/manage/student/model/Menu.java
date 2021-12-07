@@ -3,18 +3,13 @@ package vn.lnquang.manage.student.model;
 //import vn.lnquang.manage.student.views.InstructorManagement;
 import vn.lnquang.manage.student.service.InstructorService;
 import vn.lnquang.manage.student.service.StudentService;
+import vn.lnquang.manage.student.views.View;
 
 import java.util.Scanner;
 
 public class Menu {
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
-//        StudentManagement list = new StudentManagement();
-//                list.addStudent();
-//                list.showStudentList();
-//        System.out.println(list.checkStudentList());
-//        System.out.println(list.checkQuantity());
         do {
 
             System.out.println("Menu--------");
@@ -53,9 +48,8 @@ public class Menu {
     }
 
     public static void studentManager(){
+        View view = new View();
         Scanner scanner = new Scanner(System.in);
-        StudentService student = new StudentService();
-
         do {
 
             System.out.println("Menu--------");
@@ -76,36 +70,36 @@ public class Menu {
                 if (choice > 0 && choice < 10) {
                     switch (choice) {
                         case 1:
-                        student.addStudent();
+                        view.addStudentIntoList();
 
                             break;
                         case 2:
-                        student.showStudentList();
+                        view.showStudentList();
                             break;
                         case 3:
-                            student.alert();
+                            view.checkList();
                             break;
                         case 4:
-                            student.printQuantity();
+                            view.printQuantity();
                             break;
                         case 5:
-                            student.emptyStudentList();
+                            view.resetStudentList();
                             break;
                         case 6:
 
                             break;
-                        case 7:
-                            student.checkRemove();
-                            break;
-                        case 8:
-                            student.checkStudent();
-                            break;
-                        case 9:
-                            break;
-                        case 10:
-                            break;
-                        case 11:
-                            break;
+//                        case 7:
+//                            student.checkRemove();
+//                            break;
+//                        case 8:
+//                            student.checkStudent();
+//                            break;
+//                        case 9:
+//                            break;
+//                        case 10:
+//                            break;
+//                        case 11:
+//                            break;
                     }
                 } else if (choice == 0) {
                     System.out.println("tam biet");
