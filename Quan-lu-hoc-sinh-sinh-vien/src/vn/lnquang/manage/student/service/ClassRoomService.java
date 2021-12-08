@@ -39,7 +39,7 @@ public class ClassRoomService {
         }
         classRoom.setStudentList(studentList);
     }
-
+//            4. Hien thi thong tin lop theo id
     public ClassRoom getClassRoom(String id){
             for (ClassRoom classRoom: classList) {
                 if(classRoom.getClassId().equals(id)){

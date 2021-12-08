@@ -99,6 +99,7 @@ public void resetStudentList(){
 //6.Kiem tra ton tai Sinh Vien theo ID
     public void checkStudentInList(){
         Scanner scanner = new Scanner(System.in);
+        System.out.println(" Nhập id sinh viên bạn muốn tìm: ");
         int id = scanner.nextInt();
         if(studentService.checkAvailable(id)){
             System.out.println(" Có sinh viên trong danh sách là: ");

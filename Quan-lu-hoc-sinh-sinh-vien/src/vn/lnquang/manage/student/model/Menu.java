@@ -168,7 +168,47 @@ public class Menu {
     }
 
     public static void classRoomManager(){
+        Scanner scanner = new Scanner(System.in);
+        View view = new View();
+        do {
 
+            System.out.println("Menu--------");
+            System.out.println("Vui long chon chuc nang");
+            System.out.println("1.Tạo lớp học");
+            System.out.println("2. Thêm giảng viên vào lớp học mình muốn");
+            System.out.println("3. Thêm sinh viên vào lớp học mình muốn.");
+            System.out.println("4. Hiển thị thông tin lớp học theo ID");
+
+            System.out.println("0. Ket thuc chuong trinh.");
+            System.out.println("Nhap so: ");
+            try {
+                int choice = Integer.parseInt(scanner.next());
+                if (choice > 0 && choice < 5) {
+                    switch (choice) {
+                        case 1:
+                            view.addInstructorIntoList();
+                            break;
+                        case 2:
+                            view.showInstructorList();
+                            break;
+                        case 3:
+                            view.checkInstructorList();
+                            break;
+                        case 4:
+                            view.printInstructorQuantity();
+                            break;
+                    }
+                } else if (choice == 0) {
+                    System.out.println("tam biet");
+                    break;
+                } else
+                    System.out.println("nhap tu 0-3");
+
+            } catch (Exception e) {
+                System.err.println("yeu cau nhap so");
+            }
+        }
+        while (true);
     }
     }
 
