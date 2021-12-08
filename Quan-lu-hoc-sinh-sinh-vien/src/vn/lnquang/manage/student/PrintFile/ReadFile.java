@@ -1,33 +1,41 @@
-//package vn.lnquang.manage.student.PrintFile;
-//
-//import vn.lnquang.manage.student.model.Student;
-//
-//import java.io.File;
-//import java.io.FileInputStream;
-//import java.io.ObjectInputStream;
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//public class ReadFile {
-//    public static void main(String[] args) {
-//        File hocSinh = new File("/Users/macbookprom1/Desktop/CaseStudy2/CaseStudy2/Quan-lu-hoc-sinh-sinh-vien/src/Danhsach/Student.csv");
-//        List<Student> student = docHocSinhTuDanhSach(hocSinh);
-//        System.out.println(student);
-//    }
-//
-//    public static List<Student> docHocSinhTuDanhSach(File file) {
-//        List<Student> students = new ArrayList<>();
-//        try {
-//            FileInputStream fis = new FileInputStream(file);
-//            ObjectInputStream ois = new ObjectInputStream(fis);
-//            students = (List<Student>) ois.read();
-//            fis.close();
-//            ois.close();
-//        } catch (Exception ex) {
-//            ex.printStackTrace();
-//        }
-//        return students;
-//    }
-//}
-//
-//
+package vn.lnquang.manage.student.PrintFile;
+
+import vn.lnquang.manage.student.model.Student;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ReadFile {
+    static BufferedReader bufferedReader = null;
+    public static void main(String[] args) {
+        File file = new File("src\\Danhsach\\Student.csv");
+        List<Student> student = docHocSinhTuDanhSach(file);
+        System.out.println(student);
+    }
+
+    public static List<Student> docHocSinhTuDanhSach(File file) {
+        List<Student> students = new ArrayList<>();
+        try {
+            String line;
+            bufferedReader = new BufferedReader(new FileReader(file));
+            while ((line = bufferedReader.readLine()) != null) {
+                String data[] = line.split(",");
+                String name = data[0];
+                String gender = data[1];
+                String birthday = data[2];
+                String address = data[3];
+                double aver = Double.parseDouble(data[4]);
+                String email = data[5];
+                students.add(new  Student(name, gender, birthday, address, aver, email));
+            }
+        } catch (FileNotFoundException e) {
+            System.err.println("File not found");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return students;
+    }
+}
+
+
