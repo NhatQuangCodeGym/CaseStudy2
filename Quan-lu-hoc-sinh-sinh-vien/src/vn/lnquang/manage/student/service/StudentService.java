@@ -1,6 +1,6 @@
 package vn.lnquang.manage.student.service;
 
-import vn.lnquang.manage.student.PrintFile.PrintFile;
+//import vn.lnquang.manage.student.PrintFile.PrintFile;
 import vn.lnquang.manage.student.model.Person;
 import vn.lnquang.manage.student.model.Student;
 
@@ -8,8 +8,8 @@ import java.io.*;
 import java.util.*;
 
 public class StudentService {
-    final PrintFile printFile = new PrintFile();
-    final File path = new File("/Users/macbookprom1/Desktop/CaseStudy2/CaseStudy2/Quan-lu-hoc-sinh-sinh-vien/src/Danhsach/Student.csv");
+//    final PrintFile printFile = new PrintFile();
+//    final File path = new File("/Users/macbookprom1/Desktop/CaseStudy2/CaseStudy2/Quan-lu-hoc-sinh-sinh-vien/src/Danhsach/Student.csv");
     public void add(Student student) {
 
     }
@@ -25,12 +25,7 @@ public class StudentService {
          public List<Student> getStudents() {
              return students;
          }
-//}
-//         public void showStudentList() {
-//             for (Person sinhVien : students) {
-//                 System.out.println(sinhVien);
-//             }
-//         }
+
 ////3. Kiem tra danh sach sinh vien co rong hay khong
         public boolean checkStudentList(){
             return students.isEmpty();
@@ -41,7 +36,6 @@ public class StudentService {
 //            System.out.println(" Số lượng sinh viên trong danh sách là: ");
              return students.size();
 }
-
 ////5. Lam rong danh sach sinh vien
              public void remove(){
             students.removeAll(students);

@@ -28,7 +28,7 @@ public class View {
         return "Lớp " + id + " có GVCN là: " + name + " đã được tạo." ;
     }
 //    2. Them giang vien vao lop hoc minh muon
-    public String addInstructor(){
+    public String addInstructorIntoClass(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhap ID lop hoc ban muon them giang vien vao: ");
         String id = scanner.nextLine();
@@ -50,7 +50,10 @@ public class View {
         return "Sinh viên " + name + " đã được thêm vào lớp " + id ;
     }
 //    4. Thong tin lop hoc vua tao
-    public void getClassInformation(String id){
+    public void getClassInformation(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(" Nhập vào ID lớp muốn xem thông tin: ");
+        String id = scanner.nextLine();
         ClassRoom classRoom = classRoomService.getClassRoom(id);
         System.out.println(" Thông tin lớp học: " + classRoom);
     }
@@ -188,9 +191,9 @@ public void resetInstructorList(){
         String name = scanner.nextLine();
         Instructor giangVien = instructorService.findInstructor(name);
         if(giangVien != null){
-            System.out.println("Có sinh viên: " + giangVien);
+            System.out.println("Có giảng viên: " + giangVien);
         }else
-            System.out.println(" không có sinh viên tên: " + name);
+            System.out.println(" không có giảng viên tên: " + name);
     }
 //7. Tính lương của giảng viên theo tên
 public void getSalary() {

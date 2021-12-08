@@ -29,7 +29,7 @@ public class Menu {
                         instructorManager();
                             break;
                         case 3:
-//                        classroomManager();
+                        classRoomManager();
                             break;
                     }
                 } else if (choice == 0) {
@@ -186,23 +186,23 @@ public class Menu {
                 if (choice > 0 && choice < 5) {
                     switch (choice) {
                         case 1:
-                            view.addInstructorIntoList();
+                            view.createClassRoom();
                             break;
                         case 2:
-                            view.showInstructorList();
+                            view.addInstructorIntoClass();
                             break;
                         case 3:
-                            view.checkInstructorList();
+                            view.addStudentIntoClass();
                             break;
                         case 4:
-                            view.printInstructorQuantity();
+                            view.getClassInformation();
                             break;
                     }
                 } else if (choice == 0) {
                     System.out.println("tam biet");
                     break;
                 } else
-                    System.out.println("nhap tu 0-3");
+                    System.out.println("nhap tu 0-4");
 
             } catch (Exception e) {
                 System.err.println("yeu cau nhap so");
