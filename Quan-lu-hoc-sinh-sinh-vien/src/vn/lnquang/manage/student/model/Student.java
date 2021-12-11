@@ -57,7 +57,9 @@ public class Student extends Person {
         this.AverageScore = Diem_tb;
         this.Email = Email;
     }
-
+//    public String getName(){
+//        return
+//    }
     @Override
     public String toString() {
         return super.toString() + ", Ma_sv=" + id + ", Diem_tb=" + AverageScore + ", Email=" + Email;

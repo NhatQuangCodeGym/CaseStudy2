@@ -6,10 +6,15 @@ import java.util.List;
 public class ClassRoom {
     private String ClassId;
     private Person headTeacher;
-    private List<Instructor> subjectTeacherList;
-    private List<Student> studentList;
+    private List<Instructor> subjectTeacherList= new ArrayList<>();
+    private List<Student> studentList= new ArrayList<>();
 
     public ClassRoom() {
+    }
+
+    public ClassRoom(String classId, Person headTeacher) {
+        ClassId = classId;
+        this.headTeacher = headTeacher;
     }
 
     public ClassRoom(String classId, Person headTeacher, List<Instructor> subjectTeacherList, List<Student> studentList) {
@@ -39,16 +44,16 @@ public class ClassRoom {
         return subjectTeacherList;
     }
 
-    public void setSubjectTeacherList(List<Instructor> subjectTeacherList) {
-        this.subjectTeacherList = subjectTeacherList;
+    public void setSubjectTeacherList( Instructor giangvien) {
+        this.subjectTeacherList.add(giangvien);
     }
 
     public List<Student> getStudentList() {
         return studentList;
     }
 
-    public void setStudentList(List<Student> studentList) {
-        this.studentList = studentList;
+    public void setStudentList(Student student) {
+        this.studentList.add(student);
     }
 
     @Override

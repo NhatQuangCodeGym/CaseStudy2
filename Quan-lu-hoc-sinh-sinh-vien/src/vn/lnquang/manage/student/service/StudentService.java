@@ -1,6 +1,8 @@
 package vn.lnquang.manage.student.service;
 
 //import vn.lnquang.manage.student.PrintFile.PrintFile;
+import vn.lnquang.manage.student.PrintFile.PrintFile;
+import vn.lnquang.manage.student.PrintFile.ReadFile;
 import vn.lnquang.manage.student.model.Person;
 import vn.lnquang.manage.student.model.Student;
 
@@ -8,13 +10,12 @@ import java.io.*;
 import java.util.*;
 
 public class StudentService {
-//    final PrintFile printFile = new PrintFile();
-//    final File path = new File("/Users/macbookprom1/Desktop/CaseStudy2/CaseStudy2/Quan-lu-hoc-sinh-sinh-vien/src/Danhsach/Student.csv");
+    final ReadFile readFile = new ReadFile();
     public void add(Student student) {
 
     }
 //    final Scanner scanner= new Scanner(System.in);
-    List<Student> students= new ArrayList<>();
+    List<Student> students= readFile.docHocSinhTuDanhSach();
 ////    1. Them sinh vien vao danh sach
             public void addStudent(Student sv){
                 students.add(sv);

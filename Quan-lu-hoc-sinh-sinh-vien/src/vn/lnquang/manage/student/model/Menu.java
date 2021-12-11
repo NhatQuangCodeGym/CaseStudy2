@@ -39,7 +39,7 @@ public class Menu {
                     System.out.println("nhap tu 0-3");
 
             } catch (Exception e) {
-                System.err.println("yeu cau nhap so");
+                e.printStackTrace();
             }
         }
             while (true);
@@ -62,11 +62,13 @@ public class Menu {
             System.out.println("7. Xoá sinh viên ra khỏi danh sách bằng MSV");
             System.out.println("8. Tìm sinh viên theo tên.");
             System.out.println("9. Sắp xếp sinh viên theo điểm từ cao đến thấp");
+            System.out.println("10. Ghi dữ liệu sinh viên ra file ");
             System.out.println("0. Ket thuc chuong trinh.");
             System.out.println("Nhap so: ");
             try {
-                int choice = Integer.parseInt(scanner.next());
-                if (choice > 0 && choice < 10) {
+//                int choice = Integer.parseInt(scanner.next());
+                int choice = scanner.nextInt();
+                if (choice > 0 && choice < 12) {
                     switch (choice) {
                         case 1:
                         view.addStudentIntoList();
@@ -96,19 +98,18 @@ public class Menu {
                         case 9:
                             view.sortStudentList();
                             break;
-//                        case 10:
-//                            break;
-//                        case 11:
-//                            break;
+                        case 10:
+                            view.WriteStudentList();
+                            break;
                     }
                 } else if (choice == 0) {
                     System.out.println("tam biet");
                     break;
                 } else
-                    System.out.println("nhap tu 0-3");
+                    System.out.println("nhap tu 0-11");
 
             } catch (Exception e) {
-                System.err.println("yeu cau nhap so");
+                System.err.println("Yêu cầu nhập số");
             }
         }
         while (true);
@@ -126,7 +127,7 @@ public class Menu {
             System.out.println("4. Đếm số lượng giảng viên trong danh sách");
             System.out.println("5. Reset danh sách giảng viên");
             System.out.println("6. Tìm giảng viên theo tên.");
-            System.out.println("7. Tính lương của giảng viên theo tên");
+            System.out.println("7. Ghi Giảng viên vào file");
             System.out.println("0. Ket thuc chuong trinh.");
             System.out.println("Nhap so: ");
             try {
@@ -152,13 +153,14 @@ public class Menu {
                             view.checkInstructor();
                             break;
                         case 7:
-                            view.getSalary();
+                            view.WriteInstructorList();
+                            break;
                     }
                 } else if (choice == 0) {
                     System.out.println("tam biet");
                     break;
                 } else
-                    System.out.println("nhap tu 0-3");
+                    System.out.println("nhap tu 0-7");
 
             } catch (Exception e) {
                 System.err.println("yeu cau nhap so");
@@ -205,7 +207,7 @@ public class Menu {
                     System.out.println("nhap tu 0-4");
 
             } catch (Exception e) {
-                System.err.println("yeu cau nhap so");
+                e.printStackTrace();
             }
         }
         while (true);

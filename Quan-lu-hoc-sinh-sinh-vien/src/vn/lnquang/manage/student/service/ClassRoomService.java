@@ -8,36 +8,45 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClassRoomService {
+
     List<ClassRoom> classList = new ArrayList<>();
+
+
 //    1. Tao lop hoc
-    public void createClass(String id, String GVCN, InstructorService instructorList) {
+    public void createClass(String id, String GVCN) {
         ClassRoom classRoom = new ClassRoom();
+        InstructorService instructorService=new InstructorService();
+        List<Instructor> instructorList = instructorService.getInstructors();
         classRoom.setClassId(id);
-        for (Instructor giangVien: instructorList.getInstructors() ) {
+        for (Instructor giangVien: instructorList) {
             if(giangVien.getName().equals(GVCN))
                 classRoom.setHeadTeacher(giangVien);
         }
         classList.add(classRoom);
     }
 //        2. Them giang vien vao lop minh muon
-    public void addInstructorIntoClass(String id, String name, InstructorService instructList) {
+    public void addInstructorIntoClass(String id, String name) {
+        InstructorService instructorService=new InstructorService();
+        List<Instructor> instructorList= instructorService.getInstructors();
         ClassRoom classRoom = getClassRoom(id);
-        List<Instructor> instructorList = new ArrayList<>();
-        for (Instructor person : instructList.getInstructors()) {
+        for (Instructor person : instructorList ) {
             if(person.getName().equals(name))
-            instructorList.add(person);
+//            instructorList.add(person);
+            classRoom.setSubjectTeacherList(person);
         }
-        classRoom.setSubjectTeacherList(instructorList);
+
     }
     //        3. Them sinh vien vao lop minh muon
-    public void addStudentIntoClass(String id, String name, StudentService ssList) {
+    public void addStudentIntoClass(String id, String name) {
+        StudentService studentService =new StudentService();
+        List<Student> studentList = studentService.getStudents();
         ClassRoom classRoom = getClassRoom(id);
-        List<Student> studentList = new ArrayList<>();
-        for (Student person : ssList.getStudents()) {
+        for (Student person : studentList ) {
             if(person.getName().equals(name))
-                studentList.add(person);
+//            instructorList.add(person);
+                classRoom.setStudentList(person);
         }
-        classRoom.setStudentList(studentList);
+
     }
 //            4. Hien thi thong tin lop theo id
     public ClassRoom getClassRoom(String id){
