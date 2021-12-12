@@ -23,50 +23,50 @@ public class View {
     public void createClassRoom(){
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print(" Nhap vao ID lop muon tao: ");
+        System.out.print(" Input your new class ID:  ");
         String id = scanner.nextLine();
-        System.out.println("Nhap vao giao vien chu nhiem");
+        System.out.println("Appoint the Head Teacher: ");
         showInstructorList();
         String name = scanner.nextLine();
         classRoomService.createClass(id,name);
-        System.out.println("Lớp " + id + " có GVCN là: " + name + " đã được tạo." );
+        System.out.println("Class " + id + " led by " + name + " created" );
     }
 //    2. Them giang vien vao lop hoc minh muon
     public void addInstructorIntoClass(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Nhap ID lop hoc ban muon them giang vien vao: ");
+        System.out.println("Input ID Class For Your Instructor ");
         String id = scanner.nextLine();
         showInstructorList();
-        System.out.println("Nhap vao ten giang vien ban muon them vao: ");
+        System.out.println("Input Your Subject Teacher:  ");
         String name = scanner.nextLine();
         classRoomService.addInstructorIntoClass(id,name);
-        System.out.println("Giảng viên " + name + " đã được thêm vào lớp " + id);
+        System.out.println("Instructor " + name + " added into class " + id);
     }
 //    /    3. Them sinh vien vao lop hoc minh muon
     public void addStudentIntoClass(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Nhap ID lop hoc ban muon them sinh vien vao: ");
+        System.out.println("Input ID Class For Your Student: ");
         String id = scanner.nextLine();
         showStudentList();
-        System.out.println("Nhap vao ten sinh vien ban muon them vao: ");
+        System.out.println("Input Your Student Into Class: ");
         String name = scanner.nextLine();
         classRoomService.addStudentIntoClass(id,name);
-        System.out.println("Sinh viên" + name + " đã được thêm vào lớp " + id);
+        System.out.println("Student " + name + " added into class " + id);
     }
 //    4. Thong tin lop hoc vua tao
     public void getClassInformation(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println(" Nhập vào ID lớp muốn xem thông tin: ");
+        System.out.println(" Input ID Class For More Information:  ");
         String id = scanner.nextLine();
         ClassRoom classRoom = classRoomService.getClassRoom(id);
-        System.out.println(" Thông tin lớp học: "  );
-        System.out.println("ID lớp học" + classRoom.getClassId());
-        System.out.println(" Giáo viên chủ nhiệm" +classRoom.getHeadTeacher());
-        System.out.println(" Danh sách giảng viên bộ môn lớp " + id +" :");
+        System.out.println(" Class Information "  );
+        System.out.println("Class ID " + classRoom.getClassId());
+        System.out.println(" Head Teacher: " +classRoom.getHeadTeacher());
+        System.out.println(" Subject Teacher List Of Class " + id +" :");
         for (Instructor instructor : classRoom.getSubjectTeacherList()) {
             System.out.println(instructor);
         }
-        System.out.println("Danh sách học sinh trong lớp " + id + " :");
+        System.out.println("Student List Of Class " + id + " :");
         for(Student student : classRoom.getStudentList()){
             System.out.println(student);
         }
@@ -75,24 +75,24 @@ public class View {
 //        1. Them SV vao danh sach sinh vien
 public void addStudentIntoList() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println(" Nhap ten sinh vien:");
+        System.out.println(" Input Student's Name: ");
         String name= scanner.nextLine();
-        System.out.println(" Nhap gioi tinh: ");
+        System.out.println(" Input Gender:  ");
         String gender= scanner.nextLine();
-        System.out.println(" Nhap ngay sinh: ");
+        System.out.println(" Input Date Of Birth: ");
         String birthDay=scanner.nextLine();
-        System.out.println("Nhap dia chi: ");
+        System.out.println("Input Address: ");
         String address=scanner.nextLine();
-        System.out.println("Nhap diem trung binh: ");
+        System.out.println("Input Average Score : ");
         double  averageScore= scanner.nextDouble();
         scanner.nextLine();
         do {
-            System.out.println(" Nhap dia chi email: ");
+            System.out.println(" Input Email Address:  ");
             String Email= scanner.nextLine();
             if(regexEmail.validate(Email)){
                 studentService.addStudent(new Student(name,gender,birthDay,address,averageScore,Email));
                 break;
-            } else System.out.println("Email không hợp lệ:");
+            } else System.out.println("Email invalid:");
         }while(true);
 
 
@@ -107,50 +107,50 @@ public void showStudentList() {
 //   3. Kiem tra danh sach sinh vien co rong hay khong
 public void checkStudentList(){
     if (studentService.checkStudentList())
-        System.out.println("Không có sinh viên nào trong danh sách");
+        System.out.println("No Student In Current List");
     else
-        System.out.println("Có tồn tại sinh viên trong danh sách");
+        System.out.println("Student Existed in Current List");
 }
 //4.Lay ra so luong sinh vien trong danh sach
 public void printQuantity() {
-    System.out.println("Số lượng sinh viên trong danh sách là: " + studentService.checkStudentQuantity());
+    System.out.println("The Number of Student Available In Current List is : " + studentService.checkStudentQuantity());
 }
 //5. Lam rong danh sach sinh vien
 public void resetStudentList(){
         studentService.remove();
-    System.out.println("Danh sách sinh viên đã được làm mới.");
+    System.out.println("Student List Renewed");
 }
 //6.Kiem tra ton tai Sinh Vien theo ID
     public void checkStudentInList(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println(" Nhập id sinh viên bạn muốn tìm: ");
+        System.out.println(" Input Student's ID You Want To Find:  ");
         int id = scanner.nextInt();
         if(studentService.checkAvailable(id)){
-            System.out.println(" Có sinh viên trong danh sách là: ");
+            System.out.println(" Student Available in Student List with information: ");
             Student student = studentService.findStudentByID(id);
             System.out.println(student);
         }else
-            System.out.println("ID sinh viên không tồn tại");
+            System.out.println("No Student Was Found With Your Input ID");
 
     }
 //    7. Xoa mot ban  sinh vien ra khoi danh sach danh sinh vien theo ID
 public void checkRemove(){
         Scanner scanner = new Scanner(System.in);
-    System.out.println(" Nhập vào id sinh viên bạn muốn xoá khỏi danh sách: ");
+    System.out.println(" Input Student's ID for removing: ");
     int id = scanner.nextInt();
     if(studentService.removeStudent(id))
-        System.out.println("Sinh viên có MSV" + id +" đã bị xoá khỏi danh sách");
+        System.out.println("Student With ID " + id +" Has Been Removed");
     else
-        System.out.println(" Không tìm ra sinh viên trong danh sách");
+        System.out.println(" Student With ID" + id + " Not Found");
 }
 //    8.Tim sinh vien theo ten
 public void checkStudentByName(){
         Scanner scanner = new Scanner(System.in);
-    System.out.println(" Nhập vào tên sinh viên bạn muốn tìm:");
+    System.out.println(" Input Student's Name You Want To Find ");
     String name = scanner.nextLine();
      Student student = studentService.findStudent(name);
      if(student != null){
-         System.out.println("Có sinh viên: " + student);
+         System.out.println("Student Name: " + student + " Available");
      }else
          System.out.println(" không có sinh viên tên: " + name);
 }
@@ -170,18 +170,18 @@ public void checkStudentByName(){
 //1. Thêm giảng viên vào danh sách");
     public void addInstructorIntoList(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Nhap ten giang vien: ");
+        System.out.println("Input Instructor's Name: ");
         String name = scanner.nextLine();
-        System.out.println(" Nhap gioi tinh: ");
+        System.out.println(" Input Gender: ");
         String gender = scanner.nextLine();
-        System.out.println(" Nhap ngay sinh: ");
+        System.out.println(" Input Date Of Birth: ");
         String birthDay = scanner.nextLine();
-        System.out.println("Nhap dia chi: ");
+        System.out.println("Input Address: ");
         String address = scanner.nextLine();
-        System.out.println("Nhap luong cua Giang Vien: ");
+        System.out.println("Input Basic Salary: ");
         double salary = scanner.nextDouble();
         scanner.nextLine();
-        System.out.println("Nhap so gio day cua Giang Vien: ");
+        System.out.println("Input Teaching Hours: ");
         double teachingHours = scanner.nextDouble();
         scanner.nextLine();
         instructorService.addInstructor(new Instructor(name,gender,birthDay,address,salary,teachingHours));
@@ -196,29 +196,29 @@ public void showInstructorList() {
 //3. Kiểm tra danh sách giảng viên có rỗng không.");
 public void checkInstructorList(){
     if (instructorService.checkInstructorList())
-        System.out.println("Không có giảng viên nào trong danh sách");
+        System.out.println("No Instructor Available In Current List");
     else
-        System.out.println("Có tồn tại giảng viên trong danh sách");
+        System.out.println("Instructor List Available");
 }
 //4. Đếm số lượng giảng viên trong danh sách
 public void printInstructorQuantity() {
-    System.out.println("Số lượng giảng viên trong danh sách là: " + instructorService.checkInstructorQuantity());
+    System.out.println("The number of Instructors In Current List is: " + instructorService.checkInstructorQuantity());
 }
 //5. Reset danh sách giảng viên");
 public void resetInstructorList(){
     instructorService.emptyInstructorList();
-    System.out.println("Danh sách giảng viên viên đã được làm mới.");
+    System.out.println("Instructor List Has Been renewed");
 }
 //6. Tìm giảng viên theo tên;
     public void checkInstructorByName(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println(" Nhập vào tên giảng viên bạn muốn tìm:");
+        System.out.println(" Input Instructor's Name You Want To Find: ");
         String name = scanner.nextLine();
         Instructor giangVien = instructorService.findInstructor(name);
         if(giangVien != null){
-            System.out.println("Có giảng viên: " + giangVien.getName());
+            System.out.println("Instructor With Name: " + giangVien.getName() + " Available");
         }else
-            System.out.println(" không có giảng viên tên: " + name);
+            System.out.println(" No Instructor Was Found With Name: " + name);
     }
 
 //7.Ghi giảng viên từ file
