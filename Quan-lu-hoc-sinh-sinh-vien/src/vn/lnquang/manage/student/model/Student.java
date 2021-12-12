@@ -62,6 +62,6 @@ public class Student extends Person {
 //    }
     @Override
     public String toString() {
-        return super.toString() + ", Ma_sv=" + id + ", Diem_tb=" + AverageScore + ", Email=" + Email;
+        return super.toString() + ", Student ID : " + id + ", AverageScore : " + AverageScore + ", Email=" + Email;
     }
 }

@@ -56,7 +56,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Ten=" + Name + ", Gioi_tinh=" + Gender + ", Ngay_sinh=" + BirthDay + ", Dia_chi=" + Address;
+        return "Name: " + Name + ", Gender: " + Gender + ", DoB: " + BirthDay + ", Address: " + Address;
     }
 
 }

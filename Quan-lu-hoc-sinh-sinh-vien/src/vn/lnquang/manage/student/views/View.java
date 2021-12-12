@@ -91,6 +91,7 @@ public void addStudentIntoList() {
             String Email= scanner.nextLine();
             if(regexEmail.validate(Email)){
                 studentService.addStudent(new Student(name,gender,birthDay,address,averageScore,Email));
+                System.out.println("A new Student Has Been Added Into List");
                 break;
             } else System.out.println("Email invalid:");
         }while(true);
@@ -165,6 +166,7 @@ public void checkStudentByName(){
         List<Student> list =studentService.getStudents();
         PrintFile printFile = new PrintFile();
         printFile.ghiDuLieuSinhVien(list);
+        System.out.println(" New Student List Has Been Exported");
     }
 //    III. Quản lí danh sách giảng viên
 //1. Thêm giảng viên vào danh sách");
@@ -226,6 +228,7 @@ public void WriteInstructorList(){
     List<Instructor> list =instructorService.getInstructors();
     PrintFile printFile = new PrintFile();
     printFile.ghiDuLieuGiangVien(list);
+    System.out.println(" New Instructor List Has Been Exported");
 }
 //0. Ket thuc chuong trinh.");
 
