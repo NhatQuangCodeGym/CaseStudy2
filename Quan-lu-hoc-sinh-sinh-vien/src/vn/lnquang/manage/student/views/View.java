@@ -144,7 +144,7 @@ public void checkRemove(){
         System.out.println(" Không tìm ra sinh viên trong danh sách");
 }
 //    8.Tim sinh vien theo ten
-public void checkStudent(){
+public void checkStudentByName(){
         Scanner scanner = new Scanner(System.in);
     System.out.println(" Nhập vào tên sinh viên bạn muốn tìm:");
     String name = scanner.nextLine();
@@ -210,7 +210,7 @@ public void resetInstructorList(){
     System.out.println("Danh sách giảng viên viên đã được làm mới.");
 }
 //6. Tìm giảng viên theo tên;
-    public void checkInstructor(){
+    public void checkInstructorByName(){
         Scanner scanner = new Scanner(System.in);
         System.out.println(" Nhập vào tên giảng viên bạn muốn tìm:");
         String name = scanner.nextLine();

@@ -1,7 +1,6 @@
 package vn.lnquang.manage.student.model;
 
 //import vn.lnquang.manage.student.views.InstructorManagement;
-import vn.lnquang.manage.student.service.InstructorService;
 import vn.lnquang.manage.student.views.View;
 
 import java.util.Scanner;
@@ -93,7 +92,7 @@ public class Menu {
                             view.checkRemove();
                             break;
                         case 8:
-                            view.checkStudent();
+                            view.checkStudentByName();
                             break;
                         case 9:
                             view.sortStudentList();
@@ -150,7 +149,7 @@ public class Menu {
                             view.resetInstructorList();
                             break;
                         case 6:
-                            view.checkInstructor();
+                            view.checkInstructorByName();
                             break;
                         case 7:
                             view.WriteInstructorList();
